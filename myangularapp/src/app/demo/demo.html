@@ -1,0 +1,28 @@
+@if (musicList.length > 0) {
+  <table>
+    <tbody>
+      <tr>
+        <th>ID</th>
+        <th>title</th>
+        <th>artist</th>
+        <th>genre</th>
+        <th>coverUrl</th>
+      </tr>
+      <!-- <ng-container *ngFor="let musicItem of musicList"> -->
+      @for (musicItem of musicList; track musicItem.id) {
+        <tr>
+          <td>{{ musicItem.id }}</td>
+          <td>{{ musicItem.title ? musicItem.title : "N/A" }}</td>
+          <td>{{ musicItem.artist }}</td>
+          <td>{{ musicItem.genre }}</td>
+          <td><img [src]="musicItem.coverUrl" /></td>
+          <!-- <td><img src="https://picsum.photos/id/225/200/200"></td> -->
+        </tr>
+      }
+
+      <!-- </ng-container> -->
+    </tbody>
+  </table>
+} @else {
+  No Value
+}
