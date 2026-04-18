@@ -1,11 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Demo } from './demo/demo';
 import { FormsModule } from '@angular/forms';
+import { Demo } from './demo/demo';
+import { Ecommerce } from './ecommerce/ecommerce';
+import { Practice } from './practice/practice';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Demo,FormsModule,],
+  imports: [RouterOutlet,FormsModule,Demo,Ecommerce,Practice],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

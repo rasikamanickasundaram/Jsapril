@@ -1,25 +1,32 @@
-// import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+// Interface
+export interface Music {
+  id: number;
+  title: string;
+  artist: string;
+  genre: string;
+  coverUrl: string;
+  isFavorite: boolean;
+}
 
 @Component({
   selector: 'app-demo',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './demo.html',
   styleUrl: './demo.css',
 })
 export class Demo {
-  musicList: any = [];
-  // displayValue: any = 0;
-  // displayValueTwo: any = 0;
+  musicList: Music[] = [];
+  inputValue: string = '';
+  finalList: Music[] = [];
+
   constructor() {
     this.getMusicList();
-    // this.displayValue = this.musicList[0].id;
-    // this.displayValueTwo = this.musicList[1].id;
-    // console.log(
-    //   `This is my Firstnum: ${this.displayValue}, This is my secound value: ${this.displayValueTwo} `,
-    // );
   }
-  getMusicList() {
+
+  getMusicList(): void {
     this.musicList = [
       {
         id: 1,
@@ -54,5 +61,19 @@ export class Demo {
         isFavorite: true,
       },
     ];
+
+    this.finalList = [...this.musicList];
+  }
+
+  searchMusic(): void {
+    if (!this.inputValue) {
+      this.finalList = [...this.musicList];
+    } else {
+      this.finalList = this.musicList.filter(
+        (musicItem: Music) =>
+          musicItem. 
+        title.toLowerCase().includes(this.inputValue.toLowerCase())
+      );
+    }
   }
 }

@@ -1,4 +1,9 @@
-@if (musicList.length > 0) {
+<div><input [(ngModel)]="inputValue" placeholder="Type here">
+<p>The value is: {{ inputValue }}</p></div>
+<button (click)="searchMusic()">Search Music</button>
+
+
+@if (finalList.length > 0) {
   <table>
     <tbody>
       <tr>
@@ -8,8 +13,12 @@
         <th>Genre</th>
         <th>CoverUrl</th>
       </tr>
-      <!-- <ng-container *ngFor="let musicItem of musicList"> -->
-      @for (musicItem of musicList; track musicItem.id) {
+      <!-- <ng-container *ngFor="let musicItem of finalList"> -->
+        <!-- for( i=0; i<=10; i++){
+  console.log(i) ;
+  finalList[i]
+} -->
+      @for (musicItem of finalList; track musicItem.id) {
         <tr>
           <td>{{ musicItem.id }}</td>
           <td>{{ musicItem.title ? musicItem.title : "N/A" }}</td>
